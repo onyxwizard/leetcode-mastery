@@ -56,16 +56,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🟢 Chapter 1: Arrays & Strings</b></summary>
 <br>
 
-- [ ] Two Sum
-- [ ] Valid Anagram
-- [ ] Contains Duplicate
-- [ ] Group Anagrams
-- [ ] Top K Frequent Elements
-- [ ] Product of Array Except Self
-- [ ] Valid Sudoku
-- [ ] Longest Consecutive Sequence
-- [ ] Encode and Decode Strings
-- [ ] Majority Element
+- [x] Two Sum
+- [x] Valid Anagram
+- [x] Contains Duplicate
+- [x] Group Anagrams
+- [x] Top K Frequent Elements
+- [x] Product of Array Except Self
+- [x] Valid Sudoku
+- [x] Longest Consecutive Sequence
+- [x] Encode and Decode Strings
+- [x] Majority Element
 
 </details>
 
@@ -73,15 +73,15 @@ _(Automatically recalculated on every push)_
 <summary><b>🟢 Chapter 2: Two Pointers</b></summary>
 <br>
 
-- [ ] Valid Palindrome
+- [x] Valid Palindrome
 - [ ] 3Sum
-- [ ] Container With Most Water
-- [ ] Trapping Rain Water
-- [ ] Two Sum II
-- [ ] Sort Colors
-- [ ] Move Zeroes
-- [ ] Remove Duplicates from Sorted Array
-- [ ] Boats to Save People
+- [x] Container With Most Water
+- [x] Trapping Rain Water
+- [x] Two Sum II
+- [x] Sort Colors
+- [x] Move Zeroes
+- [x] Remove Duplicates from Sorted Array
+- [x] Boats to Save People
 - [ ] 4Sum
 
 </details>
@@ -90,16 +90,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🟡 Chapter 3: Stacks</b></summary>
 <br>
 
-- [ ] Valid Parentheses
-- [ ] Min Stack
-- [ ] Daily Temperatures
-- [ ] Generate Parentheses
+- [x] Valid Parentheses
+- [x] Min Stack
+- [x] Daily Temperatures
+- [x] Generate Parentheses
 - [ ] Largest Rectangle in Histogram
-- [ ] Evaluate Reverse Polish Notation
-- [ ] Car Fleet
-- [ ] Asteroid Collision
-- [ ] Remove K Digits
-- [ ] Next Greater Element I
+- [x] Evaluate Reverse Polish Notation
+- [x] Car Fleet
+- [x] Asteroid Collision
+- [x] Remove K Digits
+- [x] Next Greater Element I
 
 </details>
 
@@ -107,16 +107,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🟡 Chapter 4: Binary Search</b></summary>
 <br>
 
-- [ ] Binary Search
-- [ ] Search in Rotated Array
-- [ ] Minimum in Rotated Array
-- [ ] Koko Eating Bananas
-- [ ] Median of Two Arrays
-- [ ] Search a 2D Matrix
-- [ ] Time Based Key-Value Store
-- [ ] Capacity to Ship Packages Within D Days
-- [ ] Find First and Last Position of Element in Sorted Array
-- [ ] Find Peak Element
+- [x] Binary Search
+- [x] Search in Rotated Array
+- [x] Minimum in Rotated Array
+- [x] Koko Eating Bananas
+- [x] Median of Two Arrays
+- [x] Search a 2D Matrix
+- [x] Time Based Key-Value Store
+- [x] Capacity to Ship Packages Within D Days
+- [x] Find First and Last Position of Element in Sorted Array
+- [x] Find Peak Element
 
 </details>
 
@@ -125,15 +125,15 @@ _(Automatically recalculated on every push)_
 <br>
 
 - [ ] Best Time to Buy and Sell Stock
-- [ ] Substring Without Repetition
-- [ ] Minimum Window Substring
-- [ ] Character Replacement
-- [ ] Sliding Window Maximum
-- [ ] Permutation in String
-- [ ] Fruits into Baskets
-- [ ] Minimum Size Subarray Sum
-- [ ] Subarray Product Less Than K
-- [ ] Max Consecutive Ones III
+- [x] Substring Without Repetition
+- [x] Minimum Window Substring
+- [x] Character Replacement
+- [x] Sliding Window Maximum
+- [x] Permutation in String
+- [x] Fruits into Baskets
+- [x] Minimum Size Subarray Sum
+- [x] Subarray Product Less Than K
+- [x] Max Consecutive Ones III
 
 </details>
 
@@ -141,16 +141,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🟡 Chapter 6: Linked List</b></summary>
 <br>
 
-- [ ] Reverse Linked List
-- [ ] Merge Two Sorted Lists
-- [ ] Linked List Cycle
-- [ ] Reorder List
-- [ ] Merge K Sorted Lists
-- [ ] Remove Nth Node From End of List
-- [ ] Copy List With Random Pointer
-- [ ] Add Two Numbers
-- [ ] LRU Cache
-- [ ] Reverse Nodes in K-Group
+- [x] Reverse Linked List
+- [x] Merge Two Sorted Lists
+- [x] Linked List Cycle
+- [x] Reorder List
+- [x] Merge K Sorted Lists
+- [x] Remove Nth Node From End of List
+- [x] Copy List With Random Pointer
+- [x] Add Two Numbers
+- [x] LRU Cache
+- [x] Reverse Nodes in K-Group
 
 </details>
 
@@ -159,15 +159,15 @@ _(Automatically recalculated on every push)_
 <br>
 
 - [ ] Binary Tree Level Order Traversal
-- [ ] Maximum Depth of Binary Tree
+- [x] Maximum Depth of Binary Tree
 - [ ] Lowest Common Ancestor of a Binary Search Tree
-- [ ] Binary Tree Maximum Path Sum
+- [x] Binary Tree Maximum Path Sum
 - [ ] Serialize and Deserialize Binary Tree
-- [ ] Invert Binary Tree
-- [ ] Diameter of Binary Tree
-- [ ] Validate Binary Search Tree
-- [ ] Binary Tree Right Side View
-- [ ] Construct Binary Tree from Preorder and Inorder Traversal
+- [x] Invert Binary Tree
+- [x] Diameter of Binary Tree
+- [x] Validate Binary Search Tree
+- [x] Binary Tree Right Side View
+- [x] Construct Binary Tree from Preorder and Inorder Traversal
 
 </details>
 
@@ -175,16 +175,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🟠 Chapter 8: Heaps / Priority Queue</b></summary>
 <br>
 
-- [ ] Kth Largest Element in an Array
-- [ ] K Closest Points to Origin
-- [ ] Task Scheduler
-- [ ] Find Median from Data Stream
-- [ ] Merge K Sorted Lists
-- [ ] Kth Largest Element in a Stream
-- [ ] Last Stone Weight
-- [ ] Design Twitter
-- [ ] Reorganize String
-- [ ] Sliding Window Median
+- [x] Kth Largest Element in an Array
+- [x] K Closest Points to Origin
+- [x] Task Scheduler
+- [x] Find Median from Data Stream
+- [x] Merge K Sorted Lists
+- [x] Kth Largest Element in a Stream
+- [x] Last Stone Weight
+- [x] Design Twitter
+- [x] Reorganize String
+- [x] Sliding Window Median
 
 </details>
 
@@ -192,16 +192,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🟠 Chapter 9: Backtracking</b></summary>
 <br>
 
-- [ ] Subsets
-- [ ] Combination Sum
-- [ ] Permutations
-- [ ] Word Search
-- [ ] N-Queens
-- [ ] Subsets II
-- [ ] Combination Sum II
-- [ ] Palindrome Partitioning
-- [ ] Letter Combinations of a Phone Number
-- [ ] Sudoku Solver
+- [x] Subsets
+- [x] Combination Sum
+- [x] Permutations
+- [x] Word Search
+- [x] N-Queens
+- [x] Subsets II
+- [x] Combination Sum II
+- [x] Palindrome Partitioning
+- [x] Letter Combinations of a Phone Number
+- [x] Sudoku Solver
 
 </details>
 
@@ -211,14 +211,14 @@ _(Automatically recalculated on every push)_
 
 - [ ] Implement Trie (Prefix Tree)
 - [ ] Design Add and Search Words Data Structure
-- [ ] Word Search II
-- [ ] Longest Common Prefix
-- [ ] Replace Words
-- [ ] Extra Characters in a String
-- [ ] Sum of Prefix Scores of Strings
-- [ ] Palindrome Pairs
-- [ ] Index Pairs of a String
-- [ ] Search Suggestions System
+- [x] Word Search II
+- [x] Longest Common Prefix
+- [x] Replace Words
+- [x] Extra Characters in a String
+- [x] Sum of Prefix Scores of Strings
+- [x] Palindrome Pairs
+- [x] Index Pairs of a String
+- [x] Search Suggestions System
 
 </details>
 
@@ -226,16 +226,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🔴 Chapter 11: Graphs</b></summary>
 <br>
 
-- [ ] Number of Islands
-- [ ] Clone Graph
-- [ ] Pacific Atlantic Water Flow
-- [ ] Course Schedule
-- [ ] Word Ladder
-- [ ] Max Area of Island
-- [ ] Rotting Oranges
-- [ ] Course Schedule II
-- [ ] Redundant Connection
-- [ ] Number of Connected Components in an Undirected Graph
+- [x] Number of Islands
+- [x] Clone Graph
+- [x] Pacific Atlantic Water Flow
+- [x] Course Schedule
+- [x] Word Ladder
+- [x] Max Area of Island
+- [x] Rotting Oranges
+- [x] Course Schedule II
+- [x] Redundant Connection
+- [x] Number of Connected Components in an Undirected Graph
 
 </details>
 
@@ -243,16 +243,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🔴 Chapter 12: Advanced Graphs</b></summary>
 <br>
 
-- [ ] Network Delay Time
-- [ ] Min Cost to Connect All Points
-- [ ] Cheapest Flights Within K Stops
-- [ ] Swim in Rising Water
-- [ ] Reconstruct Itinerary
-- [ ] Alien Dictionary
-- [ ] Path with Maximum Probability
-- [ ] Find the City With the Smallest Number of Neighbors at a Threshold Distance
-- [ ] Minimum Spanning Tree
-- [ ] Shortest Path in Binary Matrix
+- [x] Network Delay Time
+- [x] Min Cost to Connect All Points
+- [x] Cheapest Flights Within K Stops
+- [x] Swim in Rising Water
+- [x] Reconstruct Itinerary
+- [x] Alien Dictionary
+- [x] Path with Maximum Probability
+- [x] Find the City With the Smallest Number of Neighbors at a Threshold Distance
+- [x] Minimum Spanning Tree
+- [x] Shortest Path in Binary Matrix
 
 </details>
 
@@ -260,16 +260,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🔴 Chapter 13: 1D Dynamic Programming</b></summary>
 <br>
 
-- [ ] Climbing Stairs
-- [ ] House Robber
-- [ ] Coin Change
-- [ ] Longest Increasing Subsequence
-- [ ] Word Break
-- [ ] House Robber II
-- [ ] Decode Ways
-- [ ] Longest Palindromic Substring
-- [ ] Partition Equal Subset Sum
-- [ ] Maximum Product Subarray
+- [x] Climbing Stairs
+- [x] House Robber
+- [x] Coin Change
+- [x] Longest Increasing Subsequence
+- [x] Word Break
+- [x] House Robber II
+- [x] Decode Ways
+- [x] Longest Palindromic Substring
+- [x] Partition Equal Subset Sum
+- [x] Maximum Product Subarray
 
 </details>
 
@@ -277,16 +277,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🔴 Chapter 14: 2D Dynamic Programming</b></summary>
 <br>
 
-- [ ] Unique Paths
-- [ ] Longest Common Subsequence
-- [ ] Edit Distance
-- [ ] Burst Balloons
-- [ ] Regular Expression Matching
-- [ ] Best Time to Buy and Sell Stock with Cooldown
-- [ ] Coin Change II
-- [ ] Target Sum
-- [ ] Interleaving String
-- [ ] Distinct Subsequences
+- [x] Unique Paths
+- [x] Longest Common Subsequence
+- [x] Edit Distance
+- [x] Burst Balloons
+- [x] Regular Expression Matching
+- [x] Best Time to Buy and Sell Stock with Cooldown
+- [x] Coin Change II
+- [x] Target Sum
+- [x] Interleaving String
+- [x] Distinct Subsequences
 
 </details>
 
@@ -294,16 +294,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🔴 Chapter 15: Greedy</b></summary>
 <br>
 
-- [ ] Jump Game
-- [ ] Jump Game II
-- [ ] Gas Station
-- [ ] Partition Labels
-- [ ] Non-overlapping Intervals
-- [ ] Hand of Straights
-- [ ] Merge Triplets to Form Target Triplet
-- [ ] Valid Parenthesis String
-- [ ] Candy
-- [ ] IPO
+- [x] Jump Game
+- [x] Jump Game II
+- [x] Gas Station
+- [x] Partition Labels
+- [x] Non-overlapping Intervals
+- [x] Hand of Straights
+- [x] Merge Triplets to Form Target Triplet
+- [x] Valid Parenthesis String
+- [x] Candy
+- [x] IPO
 
 </details>
 
@@ -311,16 +311,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🔴 Chapter 16: Intervals</b></summary>
 <br>
 
-- [ ] Merge Intervals
-- [ ] Insert Interval
-- [ ] Non-overlapping Intervals
-- [ ] Meeting Rooms
+- [x] Merge Intervals
+- [x] Insert Interval
+- [x] Non-overlapping Intervals
+- [x] Meeting Rooms
 - [ ] Min. Interval to Include Query
-- [ ] Meeting Rooms II
-- [ ] Employee Free Time
-- [ ] Car Pooling
-- [ ] Interval List Intersections
-- [ ] My Calendar I
+- [x] Meeting Rooms II
+- [x] Employee Free Time
+- [x] Car Pooling
+- [x] Interval List Intersections
+- [x] My Calendar I
 
 </details>
 
@@ -328,16 +328,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🔴 Chapter 17: Bit Manipulation</b></summary>
 <br>
 
-- [ ] Single Number
-- [ ] Number of 1 Bits
-- [ ] Counting Bits
-- [ ] Reverse Bits
-- [ ] Sum of Two Integers
-- [ ] Missing Number
-- [ ] Reverse Integer
-- [ ] Power of Two
-- [ ] Bitwise AND of Numbers Range
-- [ ] Single Number II
+- [x] Single Number
+- [x] Number of 1 Bits
+- [x] Counting Bits
+- [x] Reverse Bits
+- [x] Sum of Two Integers
+- [x] Missing Number
+- [x] Reverse Integer
+- [x] Power of Two
+- [x] Bitwise AND of Numbers Range
+- [x] Single Number II
 
 </details>
 
@@ -345,16 +345,16 @@ _(Automatically recalculated on every push)_
 <summary><b>🔴 Chapter 18: Math & Geometry</b></summary>
 <br>
 
-- [ ] Rotate Image
-- [ ] Spiral Matrix
-- [ ] Set Matrix Zeroes
-- [ ] Happy Number
-- [ ] Pow(x, n)
-- [ ] Multiply Strings
-- [ ] Detect Squares
-- [ ] Plus One
-- [ ] Count Primes
-- [ ] Excel Sheet Column Number
+- [x] Rotate Image
+- [x] Spiral Matrix
+- [x] Set Matrix Zeroes
+- [x] Happy Number
+- [x] Pow(x, n)
+- [x] Multiply Strings
+- [x] Detect Squares
+- [x] Plus One
+- [x] Count Primes
+- [x] Excel Sheet Column Number
 
 </details>
 
