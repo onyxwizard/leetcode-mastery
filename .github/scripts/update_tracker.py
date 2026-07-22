@@ -5,7 +5,7 @@ import re
 def normalize(text):
     """
     Normalizes a string to match problem names.
-    1. Removes file extensions (e.g., .md, .java, .py)
+    1. Removes file extensions (e.g., .java, .py)
     2. Removes leading numbers and separators (e.g., "1_", "02-")
     3. Removes all remaining non-alphanumeric characters and lowercases.
     """
@@ -17,8 +17,11 @@ def normalize(text):
     return re.sub(r'[^a-z0-9]', '', text.lower())
 
 def get_all_solution_files():
-    """Scans the repository for all solution files and returns a set of normalized names."""
+    """Scans the repository for ACTUAL code solution files and returns a set of normalized names."""
     solution_files = set()
+    
+    # Define valid code extensions. Add more if you use other languages!
+    valid_extensions = {'.py', '.java', '.cpp', '.js', '.ts', '.c', '.cs', '.go', '.rs'}
     
     # Walk through the repository
     for root, dirs, files in os.walk('.'):
@@ -29,16 +32,19 @@ def get_all_solution_files():
             if file.startswith('.'):
                 continue
             
-            normalized_name = normalize(file)
-            if normalized_name:
-                solution_files.add(normalized_name)
+            # ONLY process files with valid code extensions (IGNORES .md files!)
+            _, ext = os.path.splitext(file)
+            if ext.lower() in valid_extensions:
+                normalized_name = normalize(file)
+                if normalized_name:
+                    solution_files.add(normalized_name)
                 
     return solution_files
 
 def update_readme(readme_path="README.md"):
-    # 1. Get all existing solution files in the repo
+    # 1. Get all existing code solution files in the repo
     existing_files = get_all_solution_files()
-    print(f"🔍 Found {len(existing_files)} solution files in repository.")
+    print(f"🔍 Found {len(existing_files)} actual code solution files in repository.")
     
     with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -46,7 +52,7 @@ def update_readme(readme_path="README.md"):
     original_content = content
     lines = content.split('\n')
 
-    # 2. Update checkboxes based on file existence (Adds OR Removes checks)
+    # 2. Update checkboxes based on code file existence (Adds OR Removes checks)
     for i, line in enumerate(lines):
         match = re.match(r'^- \[([ xX])\] (.*?)$', line)
         if match:
@@ -60,7 +66,7 @@ def update_readme(readme_path="README.md"):
             else:
                 if line.startswith('- [x]'):
                     lines[i] = f'- [ ] {problem_name}'
-                    print(f"⬜ Unchecked: {problem_name} (file deleted/missing)")
+                    print(f"⬜ Unchecked: {problem_name} (no code file found)")
 
     content = '\n'.join(lines)
 
