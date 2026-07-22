@@ -1,45 +1,66 @@
 # .github/scripts/update_tracker.py
 import os
 import re
-import sys
 
 def normalize(text):
-    """Removes leading numbers, spaces, underscores, hyphens, and lowercases the text."""
-    # 1. Strip leading numbers and their following underscores/hyphens (e.g., "1_two_sum" -> "two_sum")
+    """
+    Normalizes a string to match problem names.
+    1. Removes file extensions (e.g., .md, .java, .py)
+    2. Removes leading numbers and separators (e.g., "1_", "02-")
+    3. Removes all remaining non-alphanumeric characters and lowercases.
+    """
+    # Remove extension
+    text = os.path.splitext(text)[0]
+    # Remove leading numbers and optional separators (_, -, space)
     text = re.sub(r'^\d+[_\-\s]*', '', text)
-    # 2. Remove all other non-alphanumeric characters and lowercase
+    # Remove all non-alphanumeric characters and lowercase
     return re.sub(r'[^a-z0-9]', '', text.lower())
 
-def update_readme(changed_files_str, readme_path="README.md"):
-    if not changed_files_str.strip():
-        print("No changed files detected.")
-        return False
-
-    # 1. Parse and normalize changed file names
-    changed_files = changed_files_str.split()
-    normalized_files = set()
-    for f in changed_files:
-        basename = os.path.basename(f)
-        name_without_ext = os.path.splitext(basename)[0]
-        normalized_files.add(normalize(name_without_ext))
+def get_all_solution_files():
+    """Scans the repository for all solution files and returns a set of normalized names."""
+    solution_files = set()
     
-    print(f"Normalized files in commit: {normalized_files}")
+    # Walk through the repository
+    for root, dirs, files in os.walk('.'):
+        # Skip hidden directories and .github
+        dirs[:] = [d for d in dirs if not d.startswith('.') and d != '.github']
+        
+        for file in files:
+            if file.startswith('.'):
+                continue
+            
+            normalized_name = normalize(file)
+            if normalized_name:
+                solution_files.add(normalized_name)
+                
+    return solution_files
 
+def update_readme(readme_path="README.md"):
+    # 1. Get all existing solution files in the repo
+    existing_files = get_all_solution_files()
+    print(f"🔍 Found {len(existing_files)} solution files in repository.")
+    
     with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
     original_content = content
     lines = content.split('\n')
 
-    # 2. Tick the checkboxes based on file names
+    # 2. Update checkboxes based on file existence (Adds OR Removes checks)
     for i, line in enumerate(lines):
-        if line.startswith('- [ ] '):
-            match = re.match(r'^- \[ \] (.*?)$', line)
-            if match:
-                problem_name = match.group(1).strip()
-                if normalize(problem_name) in normalized_files:
+        match = re.match(r'^- \[([ xX])\] (.*?)$', line)
+        if match:
+            problem_name = match.group(2).strip()
+            normalized_problem = normalize(problem_name)
+            
+            if normalized_problem in existing_files:
+                if line.startswith('- [ ]'):
                     lines[i] = f'- [x] {problem_name}'
-                    print(f"✅ Ticked: {problem_name}")
+                    print(f"✅ Checked: {problem_name}")
+            else:
+                if line.startswith('- [x]'):
+                    lines[i] = f'- [ ] {problem_name}'
+                    print(f"⬜ Unchecked: {problem_name} (file deleted/missing)")
 
     content = '\n'.join(lines)
 
@@ -56,8 +77,6 @@ def update_readme(changed_files_str, readme_path="README.md"):
         if in_table and line.startswith("|") and "TOTAL" in line:
             table_end = i
             break
-        if in_table and not line.startswith("|"):
-            in_table = False
 
     if table_start != -1 and table_end != -1:
         details_blocks = re.finditer(r'<summary><b>.*?Chapter \d+: (.*?)</b></summary>(.*?)</details>', content, re.DOTALL)
@@ -65,8 +84,8 @@ def update_readme(changed_files_str, readme_path="README.md"):
         for block in details_blocks:
             chapter_name = block.group(1).strip()
             block_content = block.group(2)
-            solved = len(re.findall(r'- \[x\]', block_content))
-            total = len(re.findall(r'- \[ \]|- \[x\]', block_content))
+            solved = len(re.findall(r'- \[x\]', block_content, re.IGNORECASE))
+            total = len(re.findall(r'- \[[ xX]\]', block_content))
             chapter_counts[chapter_name] = (solved, total)
 
         new_lines = lines[:table_start+1] 
@@ -88,14 +107,11 @@ def update_readme(changed_files_str, readme_path="README.md"):
                 
                 new_line = f"| {parts[1]} | {topic} | {solved} | {total} | {bar} {percentage}% |"
                 new_lines.append(new_line)
-            else:
-                new_lines.append(line)
         
         total_percentage = int((total_solved / total_total) * 100) if total_total > 0 else 0
         total_filled = int(total_percentage / 10)
         total_bar = '█' * total_filled + '░' * (10 - total_filled)
         new_lines.append(f"| | **TOTAL** | **{total_solved}** | **{total_total}** | **{total_bar} {total_percentage}%** |")
-        
         new_lines.extend(lines[table_end+1:])
         content = '\n'.join(new_lines)
 
@@ -103,13 +119,11 @@ def update_readme(changed_files_str, readme_path="README.md"):
     if content != original_content:
         with open(readme_path, 'w', encoding='utf-8') as f:
             f.write(content)
-        print("README.md updated successfully.")
+        print("📝 README.md updated successfully.")
         return True
     else:
-        print("No matching problems found in README. No changes made.")
+        print("ℹ️ README.md is already perfectly in sync.")
         return False
 
 if __name__ == "__main__":
-    # Read the changed files from the environment variable
-    changed_files_env = os.environ.get("CHANGED_FILES", "")
-    update_readme(changed_files_env)
+    update_readme()
