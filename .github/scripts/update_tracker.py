@@ -1,4 +1,3 @@
-# .github/scripts/update_tracker.py
 import os
 import re
 
@@ -9,40 +8,28 @@ def normalize(text):
     2. Removes leading numbers and separators (e.g., "1_", "02-")
     3. Removes all remaining non-alphanumeric characters and lowercases.
     """
-    # Remove extension
     text = os.path.splitext(text)[0]
-    # Remove leading numbers and optional separators (_, -, space)
     text = re.sub(r'^\d+[_\-\s]*', '', text)
-    # Remove all non-alphanumeric characters and lowercase
     return re.sub(r'[^a-z0-9]', '', text.lower())
 
 def get_all_solution_files():
     """Scans the repository for ACTUAL code solution files and returns a set of normalized names."""
     solution_files = set()
-    
-    # Define valid code extensions. Add more if you use other languages!
     valid_extensions = {'.py', '.java', '.cpp', '.js', '.ts', '.c', '.cs', '.go', '.rs'}
     
-    # Walk through the repository
     for root, dirs, files in os.walk('.'):
-        # Skip hidden directories and .github
         dirs[:] = [d for d in dirs if not d.startswith('.') and d != '.github']
-        
         for file in files:
             if file.startswith('.'):
                 continue
-            
-            # ONLY process files with valid code extensions (IGNORES .md files!)
             _, ext = os.path.splitext(file)
             if ext.lower() in valid_extensions:
                 normalized_name = normalize(file)
                 if normalized_name:
                     solution_files.add(normalized_name)
-                
     return solution_files
 
 def update_readme(readme_path="README.md"):
-    # 1. Get all existing code solution files in the repo
     existing_files = get_all_solution_files()
     print(f"🔍 Found {len(existing_files)} actual code solution files in repository.")
     
@@ -52,7 +39,7 @@ def update_readme(readme_path="README.md"):
     original_content = content
     lines = content.split('\n')
 
-    # 2. Update checkboxes based on code file existence (Adds OR Removes checks)
+    # 1. Update checkboxes based on code file existence
     for i, line in enumerate(lines):
         match = re.match(r'^- \[([ xX])\] (.*?)$', line)
         if match:
@@ -70,17 +57,15 @@ def update_readme(readme_path="README.md"):
 
     content = '\n'.join(lines)
 
-    # 3. Rebuild the Summary Table dynamically
+    # 2. Rebuild the Summary Table dynamically
     table_start = -1
     table_end = -1
-    in_table = False
-
+    
     for i, line in enumerate(lines):
-        if "| Chapter | Topic | Solved | Total | Progress |" in line:
-            in_table = True
+        # FIX 1: Use regex to find the header row, ignoring extra spaces
+        if re.match(r'^\|\s*Chapter\s*\|', line):
             table_start = i
-            continue
-        if in_table and line.startswith("|") and "TOTAL" in line:
+        if table_start != -1 and line.startswith("|") and "TOTAL" in line:
             table_end = i
             break
 
@@ -94,14 +79,17 @@ def update_readme(readme_path="README.md"):
             total = len(re.findall(r'- \[[ xX]\]', block_content))
             chapter_counts[chapter_name] = (solved, total)
 
-        new_lines = lines[:table_start+1] 
+        # FIX 2: Keep the header (table_start) AND the separator row (table_start + 1)
+        new_lines = lines[:table_start + 2] 
+        
         total_solved = 0
         total_total = 0
 
-        for i in range(table_start + 1, table_end):
+        # Process only the actual data rows (skipping the separator)
+        for i in range(table_start + 2, table_end):
             line = lines[i]
             parts = [p.strip() for p in line.split('|')]
-            if len(parts) >= 6:
+            if len(parts) >= 6 and parts[2]: 
                 topic = parts[2]
                 solved, total = chapter_counts.get(topic, (0, 0))
                 total_solved += solved
@@ -113,15 +101,18 @@ def update_readme(readme_path="README.md"):
                 
                 new_line = f"| {parts[1]} | {topic} | {solved} | {total} | {bar} {percentage}% |"
                 new_lines.append(new_line)
+            else:
+                new_lines.append(line)
         
+        # Add TOTAL row
         total_percentage = int((total_solved / total_total) * 100) if total_total > 0 else 0
         total_filled = int(total_percentage / 10)
         total_bar = '█' * total_filled + '░' * (10 - total_filled)
         new_lines.append(f"| | **TOTAL** | **{total_solved}** | **{total_total}** | **{total_bar} {total_percentage}%** |")
+        
         new_lines.extend(lines[table_end+1:])
         content = '\n'.join(new_lines)
 
-    # 4. Save if changes were made
     if content != original_content:
         with open(readme_path, 'w', encoding='utf-8') as f:
             f.write(content)
