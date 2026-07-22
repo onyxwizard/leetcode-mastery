@@ -1,0 +1,17 @@
+# Ignore compiled/bytecode files
+__pycache__/
+*.pyc
+*.class
+*.o
+*.out
+
+# Ignore IDE/Editor settings
+.vscode/
+.idea/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Obsidian settings
+.obsidian/

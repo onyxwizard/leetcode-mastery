@@ -1,0 +1,44 @@
+.github/workflows/auto-tick.yml
+name: Auto-Update LeetCode Tracker
+
+on:
+  push:
+    branches:
+    - main
+    - master
+
+jobs:
+  update-readme:
+    name: Update Progress Tracker
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Run Tracker Updater Script
+      env:
+         GitHub automatically provides added and modified files in the push event
+        CHANGED_FILES: ${{ join(github.event.head_commit.added, ' ') }} ${{ join(github.event.head_commit.modified, ' ') }}
+      run: python .github/scripts/update_tracker.py
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add README.md
+
+        if ! git diff --staged --quiet; then
+          git commit -m "chore: auto-update progress tracker [skip ci]"
+          git push
+          echo "✅ README updated and pushed successfully!"
+        else
+          echo "ℹ️ No changes to commit."
+        fi
