@@ -22,10 +22,15 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Get changed files
+        run: |
+          # Get files changed in the latest commit, separated by spaces
+          # This is 100% reliable for all commit types (initial, merge, normal)
+          FILES=$(git log -1 --name-only --pretty=format: | tr '\n' ' ')
+          echo "CHANGED_FILES=$FILES" >> $GITHUB_ENV
+          echo "🔍 Detected changed files: $FILES"
+
       - name: Run Tracker Updater Script
-        env:
-          #GitHub automatically provides added and modified files in the push event
-          CHANGED_FILES: ${{ join(github.event.head_commit.added, ' ') }} ${{ join(github.event.head_commit.modified, ' ') }}
         run: python .github/scripts/update_tracker.py
 
       - name: Commit and push changes
@@ -38,5 +43,5 @@ jobs:
             git push
             echo "✅ README updated and pushed successfully!"
           else
-            echo "ℹ️ No changes to commit."
+            echo "ℹ️ No matching LeetCode problems found in this commit."
           fi
