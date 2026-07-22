@@ -56,7 +56,7 @@ _(Automatically recalculated on every push)_
 <summary><b>🟢 Chapter 1: Arrays & Strings</b></summary>
 <br>
 
-- [ ] Two Sum
+- [x] Two Sum
 - [ ] Valid Anagram
 - [ ] Contains Duplicate
 - [ ] Group Anagrams
