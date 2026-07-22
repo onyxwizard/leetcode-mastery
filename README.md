@@ -26,7 +26,7 @@ _(Automatically recalculated on every push)_
 
 | Chapter | Topic                  | Solved |  Total  | Progress          |
 | :------ | :--------------------- | :----: | :-----: | :---------------- |
-| **01** | Arrays & Strings | 1 | 10 | █░░░░░░░░░ 10% |
+| **01** | Arrays & Strings | 0 | 10 | ░░░░░░░░░░ 0% |
 | **02** | Two Pointers | 0 | 10 | ░░░░░░░░░░ 0% |
 | **03** | Stacks | 0 | 10 | ░░░░░░░░░░ 0% |
 | **04** | Binary Search | 0 | 10 | ░░░░░░░░░░ 0% |
@@ -44,7 +44,7 @@ _(Automatically recalculated on every push)_
 | **16** | Intervals | 0 | 10 | ░░░░░░░░░░ 0% |
 | **17** | Bit Manipulation | 0 | 10 | ░░░░░░░░░░ 0% |
 | **18** | Math & Geometry | 0 | 10 | ░░░░░░░░░░ 0% |
-| | **TOTAL** | **1** | **180** | **░░░░░░░░░░ 0%** |
+| | **TOTAL** | **0** | **180** | **░░░░░░░░░░ 0%** |
 
 ---
 
@@ -56,7 +56,7 @@ _(Automatically recalculated on every push)_
 <summary><b>🟢 Chapter 1: Arrays & Strings</b></summary>
 <br>
 
-- [x] Two Sum
+- [ ] Two Sum
 - [ ] Valid Anagram
 - [ ] Contains Duplicate
 - [ ] Group Anagrams
