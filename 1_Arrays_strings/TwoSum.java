@@ -10,5 +10,5 @@ public int[] twoSum(int[] nums, int target) {
     }
     seen.put(nums[i], i);
   }
-  return new int[] {}; // unreachable
+  return new int[] {};
 }
